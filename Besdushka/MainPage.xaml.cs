@@ -17,5 +17,14 @@ namespace Besdushka
         {
             InitializeComponent();
         }
+        async void CreateButton_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new CreatePage());
+        }
+        async void EnterButton_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new EnterPage());
+        }
+
     }
 }
