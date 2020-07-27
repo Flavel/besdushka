@@ -31,8 +31,13 @@ namespace Besdushka
             var resp = Newtonsoft.Json.JsonConvert.DeserializeObject<Resp>(json);
             if(resp.warnings == "0")
             {
+                App.Current.MainPage.Title = nickname.Text;
+
+                App.Current.Properties.Remove("nickname");
+                
                 App.Current.Properties.Add("nickname", nickname.Text);
                 App.Current.Properties.Add("password", password.Text);
+
                 
                 await Navigation.PopModalAsync(true);
             } else

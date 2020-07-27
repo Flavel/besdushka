@@ -15,19 +15,26 @@ namespace Besdushka
     {
         public MainPage()
         {
-
-            object name;
-            if (!App.Current.Properties.TryGetValue("nickname", out name))
-            {
-                App.Current.Properties["nickname"] = "";
-            }
-
             InitializeComponent();
 
-            if (App.Current.Properties["nickname"] as string == "")
+
+
+            object name;
+            if (App.Current.Properties.TryGetValue("nickname", out name))
+            {
+                Title = App.Current.Properties["nickname"] as string;
+            } else
             {
                 Navigation.PushModalAsync(new LoginPage());
             }
+
+            App.Current.ModalPopping += (s, e) =>
+            {
+                if (App.Current.Properties.TryGetValue("nickname", out name))
+                {
+                    this.Title = App.Current.Properties["nickname"] as string;
+                }
+            };
         }
         async void CreateButton_Clicked(object sender, System.EventArgs e)
         {
@@ -50,8 +57,7 @@ namespace Besdushka
                 App.Current.Properties.Remove("password");
             }
             await Navigation.PushModalAsync(new LoginPage());
-
         }
-
+        
     }
 }
