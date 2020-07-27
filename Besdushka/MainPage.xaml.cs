@@ -26,5 +26,9 @@ namespace Besdushka
             await Navigation.PushAsync(new EnterPage());
         }
 
+        async void RegistrationButton_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new RegistrationPage());
+        }
     }
 }

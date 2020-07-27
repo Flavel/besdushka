@@ -12,5 +12,9 @@
                 />
         <Button HorizontalOptions="Center" VerticalOptions="Center"
                 Text="Зайти в комнату" Clicked="EnterButton_Clicked" />
+
+        <Button HorizontalOptions="End" VerticalOptions="Fill"
+                Text="Регистрация" Clicked="RegistrationButton_Clicked"
+                />
     </StackLayout>
 </ContentPage>
