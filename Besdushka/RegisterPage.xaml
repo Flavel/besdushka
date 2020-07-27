@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Besdushka.RegisterPage">
+    <StackLayout>
+        <BoxView/>
+        <Label HorizontalOptions="Center" Text="Регистрация"/>
+        <Label Text="Никнейм"/>
+        <Entry Placeholder="" x:Name="nickname"/>
+        <Label Text="Имя"/>
+        <Entry Placeholder=""  x:Name="justname"/>
+        <Label Text="Пароль"/>
+        <Entry Placeholder="" IsPassword="True" x:Name="password"/>
+        <Label Text="Подтверждение пароля"/>
+        <Entry Placeholder="" IsPassword="True" x:Name="confirmpassword"/>
+        <Button Text="Зарегистрироваться" Clicked="RegButton_Clicked" x:Name="reg"/>
+        <Button Text="Уже зарегистрирован" Clicked="BackToLoginPage_Clicked"/>
+    </StackLayout>
+</ContentPage>

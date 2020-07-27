@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Besdushka.LoginPage">
+    <StackLayout>
+        <BoxView/>
+        <Label Text="Вход" HorizontalOptions="Center" FontSize="20"/>
+        <Label Text="Логин"/>
+        <Entry Placeholder="" x:Name="nickname"/>
+        <Label Text="Пароль"/>
+        <Entry Placeholder="" IsPassword="True" x:Name="password"/>
+        <Button Text="Войти" Clicked="LoginButton_Clicked"/>
+        <Button Text="Регистрация" Clicked="RegisterButton_Clicked"/>
+
+    </StackLayout>
+</ContentPage>
