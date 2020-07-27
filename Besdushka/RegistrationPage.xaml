@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Besdushka.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="LoginInput" HorizontalOptions="Center" VerticalOptions="Center" Text="Введите логин" />
+            <Entry x:Name="PasswordInput" HorizontalOptions="Center" VerticalOptions="Center" IsPassword="True" />
+            <Entry x:Name="RepeatPasswordInput" HorizontalOptions="Center" VerticalOptions="Center" IsPassword="True" />
+            <Entry x:Name="NameInput" HorizontalOptions="Center" VerticalOptions="Center" Text="Введите имя профиля" />
+            <Button HorizontalOptions="Center" VerticalOptions="End" Text="OK!" Clicked="okButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
