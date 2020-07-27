@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Besdushka.MainPage"
-             Title="{Binding App.Current.Properties['nickname'] as string}">
+             x:Class="Besdushka.MainPage">
     <StackLayout>
         <Button HorizontalOptions="Center" VerticalOptions="Center"
                 Text="Выйти из системы" Clicked="LoginButton_Clicked" x:Name="loginOrExit"/>
