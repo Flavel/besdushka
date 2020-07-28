@@ -4,7 +4,7 @@
         <BoxView/>
         <Label Text="Вход" HorizontalOptions="Center" FontSize="20"/>
         <Label Text="Логин"/>
-        <Entry Placeholder="" x:Name="nickname"/>
+        <Entry Placeholder="" x:Name="nickname" x:FieldModifier="public"/>
         <Label Text="Пароль"/>
         <Entry Placeholder="" IsPassword="True" x:Name="password"/>
         <Button Text="Войти" Clicked="LoginButton_Clicked"/>

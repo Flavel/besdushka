@@ -55,6 +55,7 @@ namespace Besdushka
             }
         }
     }
+
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
@@ -65,11 +66,15 @@ namespace Besdushka
             
             InitializeComponent();
 
+            LoginPage loginPage = new LoginPage();
+            loginPage.nickname.Unfocused += (s, e) => {
+                Title = loginPage.nickname.Text;
+            };
 
             DataBase db = new DataBase();
             if (db.checkConnection() == 1)
             {
-                Navigation.PushModalAsync(new LoginPage());
+                Navigation.PushModalAsync(loginPage);
             }
 
             object name;
@@ -77,28 +82,18 @@ namespace Besdushka
             {
                 Title = App.Current.Properties["nickname"] as string;
             }
-            
-
-            App.Current.ModalPopping += (s, e) =>
-            {
-                if (App.Current.Properties.TryGetValue("nickname", out name))
-                {
-                    if (db.checkConnection() == 1)
-                    {
-                        Navigation.PushModalAsync(new LoginPage());
-                    }
-                    this.Title = App.Current.Properties["nickname"] as string;
-                }
-            };
         }
+
         async void CreateButton_Clicked(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new CreatePage());
         }
+
         async void EnterButton_Clicked(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new EnterPage());
         }
+
         async void LoginButton_Clicked(object sender, System.EventArgs e)
         {
             object a;
@@ -111,7 +106,12 @@ namespace Besdushka
             {
                 App.Current.Properties.Remove("password");
             }
-            await Navigation.PushModalAsync(new LoginPage());
+
+            LoginPage loginPage = new LoginPage();
+            loginPage.nickname.Unfocused += (s, b) => {
+                Title = loginPage.nickname.Text;
+            };
+            await Navigation.PushModalAsync(loginPage);
         }
 
     }
