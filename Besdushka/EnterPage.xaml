@@ -3,7 +3,7 @@
     <ScrollView>
         <TableView>
             <TableRoot>
-                <TableSection>
+                <TableSection x:Name="RoomTable">
 
                 </TableSection>
             </TableRoot>
