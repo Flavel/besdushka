@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Besdushka.CreateNewRoom.ItemsView">
+    <ContentView.Content>
+        <StackLayout>
+            <Label Text="Предметы и умения"/>
+            <Button Text="Добавить" Clicked="Add"/>
+            <CollectionView x:Name="items" ItemsSource="{Binding itemsCollection}" SelectionMode="Single" SelectionChanged="items_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding Path=name}" FontAttributes="Bold" FontSize="25"/>
+                            <Label Text="Cвойства:" FontSize="20" FontAttributes="Bold"/>
+                            <Label Text="{Binding Path=propertiestext}" FontAttributes="Italic"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

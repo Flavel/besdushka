@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Besdushka.CreateNewRoom.NPCView">
+    <ContentView.Content>
+        <StackLayout>
+            <Label Text="Неигровые персонажи и их характеристики, атрибуты и умения "/>
+            <Button Text="Добавить" x:Name="Add" Clicked="Add_Clicked"/>
+            <CollectionView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Path=name}"/>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Besdushka.MainPage">
-    <StackLayout>
+    
+    <StackLayout x:Name="layout" VerticalOptions="Center" HorizontalOptions="Center">
         <Button HorizontalOptions="Center" VerticalOptions="Center"
                 Text="Выйти из системы" Clicked="LoginButton_Clicked" x:Name="loginOrExit"/>
         <Button HorizontalOptions="Center" VerticalOptions="Center"
@@ -14,5 +15,9 @@
                 />
         <Button HorizontalOptions="Center" VerticalOptions="Center"
                 Text="Зайти в комнату" Clicked="EnterButton_Clicked" />
+        <Button HorizontalOptions="Center" VerticalOptions="Center"
+                Text="Мои комнаты" Clicked="EnterButton_Clicked" />
+        <Button HorizontalOptions="Center" VerticalOptions="Center"
+                Text="Новый мир" Clicked="NewWorld_Clicked" />
     </StackLayout>
 </ContentPage>

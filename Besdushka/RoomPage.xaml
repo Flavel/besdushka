@@ -1,26 +1,56 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <CarouselPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Besdushka.RoomPage">
+
     <ContentPage>
         <StackLayout>
             <Label Text="Описание" FontSize="30" />
             <ScrollView>
                 <Label Text="" x:Name="description"/>
             </ScrollView>
-            <Button Text="Выйти" VerticalOptions="EndAndExpand"/>
+            <Button Text="Присоединиться" VerticalOptions="EndAndExpand" Clicked="Enter_Clicked" x:Name="Enter" x:FieldModifier="public"/>
         </StackLayout>
+    </ContentPage>
+    <ContentPage >
+        <StackLayout >
+
+            <CollectionView x:Name="ChatCollection" x:FieldModifier="public" >
+                <CollectionView.ItemTemplate >
+                    <DataTemplate >
+                        <Grid Padding="10" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions >
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Text="{Binding Path = name}" FontAttributes="Italic" />
+                            <Label Grid.Column="2" Text="{Binding Path = text}" FontAttributes="None" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout Orientation="Horizontal" >
+                <Entry Placeholder="Введите сообщение" x:Name="messageText"/>
+                <Button Text="->" WidthRequest="20" Clicked="SendMsg_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+
     </ContentPage>
     <ContentPage>
         <ScrollView>
-        <TableView>
-            <TableRoot>
-                <TableSection x:Name="PlayersTable">
+            <TableView>
+                <TableRoot>
+                    <TableSection x:Name="PlayersTable">
 
-                </TableSection>
-            </TableRoot>
-        </TableView>
-    </ScrollView>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </ScrollView>
     </ContentPage>
 </CarouselPage>

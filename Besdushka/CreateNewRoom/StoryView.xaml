@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Besdushka.CreateNewRoom.StoryView">
+    
+    <ContentView.Content>
+        <StackLayout>
+            <Label Text="Описание мира" x:Name="label"/>
+            <Editor Placeholder="Описание мира" x:Name="worldDescription" x:FieldModifier="public"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

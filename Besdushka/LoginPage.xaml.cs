@@ -10,46 +10,47 @@ namespace Besdushka
         public LoginPage()
         {
             InitializeComponent();
+            ToServer.ConnectAnsEvent += connectAns;
         }
-        public class Resp
+
+        void LoginButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            public string warnings;
+
+            if (nickname.Text == null)
+                nickname.Text = "";
+            if (password.Text == null)
+                password.Text = "";
+            
+            ToServer.Connect(nickname.Text, password.Text);
+
         }
-        async void LoginButton_Clicked(System.Object sender, System.EventArgs e)
+
+        public async void connectAns(object sender, AnsEventArgs ansEventArgs)
         {
-            var formContent = new FormUrlEncodedContent(new[]
-             {
-                new KeyValuePair<string, string>("nickname", nickname.Text),
-                new KeyValuePair<string, string>("password", password.Text),
-            });
-
-            var myHttpClient = new HttpClient();
-            var response = await myHttpClient.PostAsync("http://25.89.162.50/besdushka/login.php", formContent);
-
-            var json = await response.Content.ReadAsStringAsync();
-
-            var resp = Newtonsoft.Json.JsonConvert.DeserializeObject<Resp>(json);
-            if(resp.warnings == "0")
+            if (ansEventArgs.s[1] == "Success")
             {
-                App.Current.MainPage.Title = nickname.Text;
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Navigation.PopModalAsync();
+                    App.Current.Properties["nickname"] = nickname.Text;
+                    App.Current.Properties["password"] = password.Text;
 
-                App.Current.Properties.Remove("nickname");
-                
-                App.Current.Properties.Add("nickname", nickname.Text);
-                App.Current.Properties.Add("password", password.Text);
-
-                
-                await Navigation.PopModalAsync(true);
-            } else
-            {
-                await DisplayAlert("Уведомление", "Неправильный никнейм или пароль", "сука");
+                });
             }
-
-
+            else
+            {
+                await Device.InvokeOnMainThreadAsync(async () =>
+                {
+                    await DisplayAlert("Ошибка", ansEventArgs.s[2].Trim('\0'), "OK");
+                });
+            }
         }
-        async void RegisterButton_Clicked(System.Object sender, System.EventArgs e)
+
+
+        
+        void RegisterButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            await Navigation.PushModalAsync(new RegisterPage());
+            Navigation.PushModalAsync(new RegisterPage());
         }
     }
 }
