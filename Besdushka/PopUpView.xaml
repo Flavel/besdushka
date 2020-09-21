@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="Besdushka.PopUpView"
+                  CloseWhenBackgroundIsClicked="False"
+                  >
+    
+    <StackLayout Margin="12"
+                 Padding="0"
+                 Spacing="0"
+                 BackgroundColor="LightCyan"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Start"
+                 >
+        <Label Text="New message"/>
+        <Label Text = "In room {roomId}"/>
+        <Label Text="Message"/>
+        
+
+    </StackLayout>
+</pages:PopupPage>

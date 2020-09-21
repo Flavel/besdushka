@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                   xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   x:Class="Besdushka.PopupItemView">
+    <StackLayout Margin="12"
+                 Padding="0"
+                 Spacing="0"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 BackgroundColor="LightGray"
+                 WidthRequest="300"
+                 >
+        <Entry Placeholder="Введите название" x:Name="name" x:FieldModifier="public"/>
+        <Button Text="Добавить свойство" Clicked="AddProp_Button_Clicked" />
+        <CollectionView x:Name="properties" SelectionMode="Single" SelectionChanged="properties_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label Grid.Column="1"
+                       Text="{Binding Path = name}"
+                       FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="2"
+                               Text="{Binding Path = description}"
+                               />
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Editor Placeholder="Описание" HeightRequest="300" x:Name="description" x:FieldModifier="public"/>
+        <Button Text="Добавить" Clicked="Button_Clicked" x:Name="AddBtn" x:FieldModifier="public"/>
+
+    </StackLayout>
+</pages:PopupPage>
